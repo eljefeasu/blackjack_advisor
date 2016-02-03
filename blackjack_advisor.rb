@@ -362,7 +362,7 @@ loop do
     puts dealer_card
     print "You should "
     puts pair_hash[player_card_total.to_s][dealer_card.to_s]
-
+    puts ""
   elsif first_card == "A" || second_card == "A"
     first_card = convert_card_to_number(first_card)
     second_card = convert_card_to_number(second_card)
@@ -371,13 +371,15 @@ loop do
     soft_hash = soft
     print "You should "
     puts soft_hash[player_card_total.to_s][dealer_card.to_s]
+    puts ""
   else
     first_card = convert_card_to_number(first_card)
     second_card = convert_card_to_number(second_card)
     dealer_card = convert_card_to_number(dealer_card)
     player_card_total = first_card.to_i + second_card.to_i
     hard_hash = hard
-    print "You should"
+    print "You should "
     puts hard_hash[player_card_total.to_s][dealer_card.to_s]
+    puts ""
   end
 end
