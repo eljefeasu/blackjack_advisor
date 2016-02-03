@@ -358,8 +358,6 @@ loop do
     dealer_card = convert_card_to_number(dealer_card)
     player_card_total = first_card.to_i + second_card.to_i
     pair_hash = pair
-    puts player_card_total
-    puts dealer_card
     print "You should "
     puts pair_hash[player_card_total.to_s][dealer_card.to_s]
     puts ""
