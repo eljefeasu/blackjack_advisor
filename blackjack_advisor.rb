@@ -288,7 +288,7 @@ def pair
                     "7" => "Split",
                     "8" => "Split",
                     "9" => "Hit",
-                    "10" => "",
+                    "10" => "Stand",
                     "11" => "Hit"}
   pair_hash["16"]
   pair_hash["18"] = {"2" => "Split",
@@ -296,11 +296,11 @@ def pair
                     "4" => "Split",
                     "5" => "Split",
                     "6" => "Split",
-                    "7" => "",
+                    "7" => "Stand",
                     "8" => "Split",
                     "9" => "Split",
-                    "10" => "",
-                    "11" => ""}
+                    "10" => "Stand",
+                    "11" => "Stand"}
   pair_hash["20"] = {"2" => "Stand",
                     "3" => "Stand",
                     "4" => "Stand",
@@ -313,11 +313,10 @@ def pair
                     "11" => "Stand"}
   pair_hash["22"]
 
+  return pair_hash
 end
 
 def convert_card_to_number(card)
-
-  card.upcase!
   if card == "J" || card == "Q" || card == "K"
     card = "10"
   elsif card == "A"
@@ -327,36 +326,58 @@ def convert_card_to_number(card)
   end
 end
 
-print "Please enter your first card: "
-first_card = gets.chomp
+puts ""
+puts "Welcome to the Blackjack Advisor!"
+puts "Enter the cards you are showing and the card"
+puts "the dealer is showing, then you will recieve"
+puts "advice on what to do next."
+puts ""
+puts "When you are finished, hit enter instead of"
+puts "providing value of first card."
+puts ""
 
-print "Pleae enter your second card: "
-second_card = gets.chomp
-second_card = convert_card_to_number(second_card)
 
-print "Please enter dealer's card: "
-dealer_card = gets.chomp
-dealer_card = convert_card_to_number(dealer_card)
+loop do
+  print "Please enter your first card: "
+  first_card = gets.chomp
+  first_card.upcase!
 
-if first_card == 11 || second_card == 11
-  first_card = convert_card_to_number(first_card)
-  second_card = convert_card_to_number(second_card)
-  dealer_card = convert_card_to_number(dealer_card)
-  player_card_total = first_card.to_i + second_card.to_i
-  soft_hash = soft
-  puts soft_hash[player_card_total.to_s][dealer_card.to_s]
-elsif first_card == second_card
-  first_card = convert_card_to_number(first_card)
-  second_card = convert_card_to_number(second_card)
-  dealer_card = convert_card_to_number(dealer_card)
-  player_card_total = first_card.to_i + second_card.to_i
-  pair_hash = pair
-  puts pair_hash[player_card_total.to_s][dealer_card.to_s]
-else
-  first_card = convert_card_to_number(first_card)
-  second_card = convert_card_to_number(second_card)
-  dealer_card = convert_card_to_number(dealer_card)
-  player_card_total = first_card.to_i + second_card.to_i
-  hard_hash = hard
-  puts hard_hash[player_card_total.to_s][dealer_card.to_s]
+  break if first_card == ""
+
+  print "Pleae enter your second card: "
+  second_card = gets.chomp
+  second_card.upcase!
+
+  print "Please enter dealer's card: "
+  dealer_card = gets.chomp
+  dealer_card.upcase!
+
+  if first_card == second_card
+    first_card = convert_card_to_number(first_card)
+    second_card = convert_card_to_number(second_card)
+    dealer_card = convert_card_to_number(dealer_card)
+    player_card_total = first_card.to_i + second_card.to_i
+    pair_hash = pair
+    puts player_card_total
+    puts dealer_card
+    print "You should "
+    puts pair_hash[player_card_total.to_s][dealer_card.to_s]
+
+  elsif first_card == "A" || second_card == "A"
+    first_card = convert_card_to_number(first_card)
+    second_card = convert_card_to_number(second_card)
+    dealer_card = convert_card_to_number(dealer_card)
+    player_card_total = first_card.to_i + second_card.to_i
+    soft_hash = soft
+    print "You should "
+    puts soft_hash[player_card_total.to_s][dealer_card.to_s]
+  else
+    first_card = convert_card_to_number(first_card)
+    second_card = convert_card_to_number(second_card)
+    dealer_card = convert_card_to_number(dealer_card)
+    player_card_total = first_card.to_i + second_card.to_i
+    hard_hash = hard
+    print "You should"
+    puts hard_hash[player_card_total.to_s][dealer_card.to_s]
+  end
 end
