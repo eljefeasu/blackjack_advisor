@@ -144,14 +144,174 @@ def hard
                     "9" => "Stand",
                     "10" => "Stand",
                     "A" => "Stand"}
+
   return hard_hash
 end
 
 def soft
+  soft_hash = Hash.new {|h,k| h[k] = Hash.new("Stand")}
 
+  soft_hash["13"] = {"2" => "Hit",
+                    "3" => "Hit",
+                    "4" => "Double if possible, otherwise hit",
+                    "5" => "Double if possible, otherwise hit",
+                    "6" => "Double if possible, otherwise hit",
+                    "7" => "Hit",
+                    "8" => "Hit",
+                    "9" => "Hit",
+                    "10" => "Hit",
+                    "A" => "Hit"}
+  soft_hash["14"] = {"2" => "Hit",
+                    "3" => "Hit",
+                    "4" => "Double if possible, otherwise hit",
+                    "5" => "Double if possible, otherwise hit",
+                    "6" => "Double if possible, otherwise hit",
+                    "7" => "Hit",
+                    "8" => "Hit",
+                    "9" => "Hit",
+                    "10" => "Hit",
+                    "A" => "Hit"}
+  soft_hash["15"] = {"2" => "Hit",
+                    "3" => "Hit",
+                    "4" => "Double if possible, otherwise hit",
+                    "5" => "Double if possible, otherwise hit",
+                    "6" => "Double if possible, otherwise hit",
+                    "7" => "Hit",
+                    "8" => "Hit",
+                    "9" => "Hit",
+                    "10" => "Hit",
+                    "A" => "Hit"}
+  soft_hash["16"] = {"2" => "Hit",
+                    "3" => "Hit",
+                    "4" => "Double if possible, otherwise hit",
+                    "5" => "Double if possible, otherwise hit",
+                    "6" => "Double if possible, otherwise hit",
+                    "7" => "Hit",
+                    "8" => "Hit",
+                    "9" => "Hit",
+                    "10" => "Hit",
+                    "A" => "Hit"}
+  soft_hash["17"] = {"2" => "Double if possible, otherwise hit",
+                    "3" => "Double if possible, otherwise hit",
+                    "4" => "Double if possible, otherwise hit",
+                    "5" => "Double if possible, otherwise hit",
+                    "6" => "Double if possible, otherwise hit",
+                    "7" => "Hit",
+                    "8" => "Hit",
+                    "9" => "Hit",
+                    "10" => "Hit",
+                    "A" => "Hit"}
+  soft_hash["18"] = {"2" => "Stand",
+                    "3" => "Double if possible, otherwise stand",
+                    "4" => "Double if possible, otherwise stand",
+                    "5" => "Double if possible, otherwise stand",
+                    "6" => "Double if possible, otherwise stand",
+                    "7" => "Stand",
+                    "8" => "Stand",
+                    "9" => "Hit",
+                    "10" => "Hit",
+                    "A" => "Stand"}
+  soft_hash["19"] = {"2" => "Stand",
+                    "3" => "Stand",
+                    "4" => "Stand",
+                    "5" => "Stand",
+                    "6" => "Double if possible, otherwise stand",
+                    "7" => "Stand",
+                    "8" => "Stand",
+                    "9" => "Stand",
+                    "10" => "Stand",
+                    "A" => "Stand"}
+  soft_hash["20"]
+  soft_hash["21"]
+
+  return soft_hash
 end
 
 def pair
+  pair_hash = Hash.new {|h,k| h[k] = Hash.new("Split")}
+
+  pair_hash["4"] = {"2" => "Split",
+                    "3" => "Split",
+                    "4" => "Split",
+                    "5" => "Split",
+                    "6" => "Split",
+                    "7" => "Split",
+                    "8" => "Hit",
+                    "9" => "Hit",
+                    "10" => "Hit",
+                    "A" => "Hit"}
+  pair_hash["6"] = {"2" => "Split",
+                    "3" => "Split",
+                    "4" => "Split",
+                    "5" => "Split",
+                    "6" => "Split",
+                    "7" => "Split",
+                    "8" => "Split",
+                    "9" => "Hit",
+                    "10" => "Hit",
+                    "A" => "Hit"}
+  pair_hash["8"] = {"2" => "Hit",
+                    "3" => "Hit",
+                    "4" => "Split",
+                    "5" => "Split",
+                    "6" => "Split",
+                    "7" => "Hit",
+                    "8" => "Hit",
+                    "9" => "Hit",
+                    "10" => "Hit",
+                    "A" => "Hit"}
+  pair_hash["10"] = {"2" => "Double if possible, otherwise hit",
+                    "3" => "Double if possible, otherwise hit",
+                    "4" => "Double if possible, otherwise hit",
+                    "5" => "Double if possible, otherwise hit",
+                    "6" => "Double if possible, otherwise hit",
+                    "7" => "Double if possible, otherwise hit",
+                    "8" => "Double if possible, otherwise hit",
+                    "9" => "Double if possible, otherwise hit",
+                    "10" => "Hit",
+                    "A" => "Hit"}
+  pair_hash["12"] = {"2" => "Split",
+                    "3" => "Split",
+                    "4" => "Split",
+                    "5" => "Split",
+                    "6" => "Split",
+                    "7" => "Split",
+                    "8" => "Hit",
+                    "9" => "Hit",
+                    "10" => "Hit",
+                    "A" => "Hit"}
+  pair_hash["14"] = {"2" => "Split",
+                    "3" => "Split",
+                    "4" => "Split",
+                    "5" => "Split",
+                    "6" => "Split",
+                    "7" => "Split",
+                    "8" => "Split",
+                    "9" => "Hit",
+                    "10" => "",
+                    "A" => "Hit"}
+  pair_hash["16"]
+  pair_hash["18"] = {"2" => "Split",
+                    "3" => "Split",
+                    "4" => "Split",
+                    "5" => "Split",
+                    "6" => "Split",
+                    "7" => "",
+                    "8" => "Split",
+                    "9" => "Split",
+                    "10" => "",
+                    "A" => ""}
+  pair_hash["20"] = {"2" => "Stand",
+                    "3" => "Stand",
+                    "4" => "Stand",
+                    "5" => "Stand",
+                    "6" => "Stand",
+                    "7" => "Stand",
+                    "8" => "Stand",
+                    "9" => "Stand",
+                    "10" => "Stand",
+                    "A" => "Stand"}
+  pair_hash["22"]
 
 end
 
@@ -159,6 +319,10 @@ def convert_card_to_number(card)
   card.upcase!
   if card == "J" || card == "Q" || card == "K"
     card = "10"
+  elsif card == "A"
+    card = "11"
+  else
+    return
   end
 end
 
